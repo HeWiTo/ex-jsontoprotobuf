@@ -4,6 +4,10 @@ package example.eye;
 
 option go_package = "eyepb";
 
+message EyeColourMessage {
+  EyeColour eye_colour = 1;
+}
+
 enum EyeColour {
   UNKNOWN_EYE_COLOUR = 0;
   EYE_GREEN = 1;
