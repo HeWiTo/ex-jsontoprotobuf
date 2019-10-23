@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package example.person;
+
+option go_package = "personpb";
+
+import "eye/eye.proto";
+
+message PersonMessage {
+  int32 age = 1;
+  string first_name = 2;
+  string last_name = 3;
+  example.eye.EyeColour eye_colour = 4;
+}
+
