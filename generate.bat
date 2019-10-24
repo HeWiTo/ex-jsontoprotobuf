@@ -1,2 +1,1 @@
-protoc.exe -I protofile\ --go_out=protofile\ protofile\eye\eye.proto
-protoc.exe -I protofile\ --go_out=protofile\ protofile\person\person.proto
+protoc eye\eye.proto person\person.proto -I protofile\ --go_out=:$GOPATH\src

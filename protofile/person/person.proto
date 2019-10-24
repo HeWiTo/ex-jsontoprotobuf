@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package example.person;
+option go_package = "github.com/HeWiTo/ex-jsontoprotobuf/protofile";
 
-option go_package = "personpb";
+package person;
 
 import "eye/eye.proto";
 
@@ -10,6 +10,6 @@ message PersonMessage {
   int32 age = 1;
   string first_name = 2;
   string last_name = 3;
-  example.eye.EyeColour eye_colour = 4;
+  eye.Eye eye_colour = 4;
 }
 

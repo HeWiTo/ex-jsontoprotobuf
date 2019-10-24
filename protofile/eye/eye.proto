@@ -1,10 +1,10 @@
 syntax = "proto3";
 
-package example.eye;
+option go_package = "github.com/HeWiTo/ex-jsontoprotobuf/protofile";
 
-option go_package = "eyepb";
+package eye;
 
-message EyeColourMessage {
+message Eye {
   EyeColour eye_colour = 1;
 }
 

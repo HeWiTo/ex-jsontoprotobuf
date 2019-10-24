@@ -7,8 +7,7 @@ import (
 	"github.com/golang/protobuf/jsonpb"
 	"github.com/golang/protobuf/proto"
 
-	personpb "github.com/HeWiTo/ex-jsontoprotobuf/protofile/person"
-	eyepb "github.com/HeWiTo/ex-jsontoprotobuf/protofile/person"
+	"github.com/HeWiTo/ex-jsontoprotobuf/protofile"
 )
 
 func main() {
@@ -18,12 +17,12 @@ func main() {
 }
 
 func jsonDemo(pb proto.Message) {
-	smAsString := toJSON(pb)
-	fmt.Println(smAsString)
+	pmAsString := toJSON(pb)
+	fmt.Println(pmAsString)
 
-	sm2 := &simplepb.SimpleMessage{}
-	fromJSON(smAsString, sm2)
-	fmt.Println("Successfully created proto struct: ", sm2)
+	pm2 := &protofile.PersonMessage{}
+	fromJSON(pmAsString, pm2)
+	fmt.Println("Successfully created proto struct: ", pm2)
 }
 
 func toJSON(pb proto.Message) string {
@@ -43,22 +42,14 @@ func fromJSON(in string, pb proto.Message) {
 	}
 }
 
-// func doEnum() {
-// 	em := enumpb.EnumMessage{
-// 		Id:           42,
-// 		DayOfTheWeek: enumpb.DayOfTheWeek_THURSDAY,
-// 	}
-
-// 	em.DayOfTheWeek = enumpb.DayOfTheWeek_MONDAY
-// 	fmt.Println(em)
-// }
-
-func doEnum() *personpb.PersonMessage {
-	pm := personpb.PersonMessage{
+func doEnum() *protofile.PersonMessage {
+	pm := protofile.PersonMessage{
 		Age:       17,
 		FirstName: "Foo",
 		LastName:  "Bar",
-		EyeColour: personpb.PersonMessage.,
+		EyeColour: &protofile.Eye{
+			EyeColour: 2,
+		},
 	}
 	fmt.Println(pm)
 
